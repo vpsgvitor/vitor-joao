@@ -14,29 +14,16 @@
 </head>
 <body>
 
-
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Equipe 1</th>
-      <th scope="col-sm-1">x</th>
-      <th scope="col-sm-1">x</th>
-      <th scope="col">Equipe 2</th>
-      <th scope="col">#</th>
-    </tr>
-  </thead>
-  <tbody>
-    <c:forEach items="${partidaList}" var="partida">
-	    <tr>
-	      <th scope="row">${partida.equipe1.nome}</th>
-	      <td>${partida.equipe1.golsNaPartida}</td>
-	      <td>${partida.equipe2.golsNaPartida}</td>
-	      <td>${partida.equipe2.nome}</td>
-	      <td>###</td>
-	    </tr>
-    </c:forEach>
-  </tbody>
-</table>
+<h2>Definir resultado</h2>
+<form action="/partida/novo" method="post">
+  <div class="form-group">
+   <input name="${partida.equipe1.golsNaPartida}" placeholder="Gols da partida equipe 1"/>
+  </div>
+  <div class="form-group">
+   <input name="${partida.equipe2.golsNaPartida}" placeholder="Gols da partida equipe 2"/>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 </body>
 </html>
