@@ -9,6 +9,7 @@
 	<description>A blank project to start using VRaptor 4</description>
 
 	<properties>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<weld.version>2.1.2.Final</weld.version>
 	</properties>
