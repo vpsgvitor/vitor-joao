@@ -15,11 +15,13 @@
 <body>
 
 <h2>Definir resultado</h2>
-<form action="/partida/novo" method="post">
+<form action="/partida/editar" method="post">
   <div class="form-group">
+  	<c:out value="${partida.equipe1.nome}">${partida.equipe1.nome}</c:out>
    <input name="${partida.equipe1.golsNaPartida}" placeholder="Gols da partida equipe 1"/>
   </div>
   <div class="form-group">
+  	<c:out value="${partida.equipe2.nome}">${partida.equipe2.nome}</c:out>
    <input name="${partida.equipe2.golsNaPartida}" placeholder="Gols da partida equipe 2"/>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>

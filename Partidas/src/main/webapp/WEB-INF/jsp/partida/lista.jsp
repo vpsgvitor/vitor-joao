@@ -14,6 +14,7 @@
 </head>
 <body>
 
+<h3>Partidas</h3>
 
 <table class="table table-bordered table-striped">
   <thead>
