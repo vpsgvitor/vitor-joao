@@ -17,7 +17,7 @@
 <div class="row justify-content-sm-center">
 	<div class="col-sm-10">
 		<h2>Definir resultado</h2>
-		<form action="/your.groupid/partida/editar" method="post">
+		<form action="/your.groupid/partida/salvar" method="post">
 		  <div class="form-group">
 		  	<c:out value="${partida.equipe1.nome}">${partida.equipe1.nome}</c:out>
 		  <input name="${partida.equipe1.golsNaPartida}" placeholder="Gols da partida equipe 1"/>
