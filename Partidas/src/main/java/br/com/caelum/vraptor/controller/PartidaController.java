@@ -12,7 +12,7 @@ import br.com.vitor.vitorjoao.banco.Banco;
 import br.com.vitor.vitorjoao.model.Partida;
 
 @Controller
-@Patch("partida")
+@Patch("/partida")
 public class PartidaController {
 
 	@Inject
@@ -23,7 +23,7 @@ public class PartidaController {
 		return Banco.listaPartidas;
 	}
 
-	@Get()
+	@Get("/editar")
 	public void editar(Long id) {
 		result.include("partida", Banco.getPartidaById(id));
 	}

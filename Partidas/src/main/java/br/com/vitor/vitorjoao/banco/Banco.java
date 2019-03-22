@@ -21,6 +21,14 @@ public class Banco {
 	}
 
 	public void init() {
+		Equipe eq1 = new Equipe();
+		eq1.setNome("Vitor");
+
+		Equipe eq2 = new Equipe();
+		eq1.setNome("jao");
+
+		listaEquipes.add(eq1);
+		listaEquipes.add(eq2);
 
 	}
 
