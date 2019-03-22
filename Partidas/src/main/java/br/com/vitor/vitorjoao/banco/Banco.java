@@ -18,6 +18,10 @@ public class Banco {
 			}
 		}
 		return null;
+	}
+
+	public void init() {
 
 	}
+
 }

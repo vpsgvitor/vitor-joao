@@ -1,11 +1,8 @@
 package br.com.vitor.vitorjoao.model;
 
-import java.util.List;
-
 public class Equipe {
 	private Long id;
 	private String nome;
-	private List<Jogador> jogadores;
 	private Integer pontuacao;
 	private Integer golsNaPartida;
 
@@ -14,11 +11,10 @@ public class Equipe {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Equipe(Long id, String nome, List<Jogador> jogadores, Integer pontuacao, Integer golsNaPartida) {
+	public Equipe(Long id, String nome, Integer pontuacao, Integer golsNaPartida) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.jogadores = jogadores;
 		this.pontuacao = pontuacao;
 		this.golsNaPartida = golsNaPartida;
 	}
@@ -37,14 +33,6 @@ public class Equipe {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public List<Jogador> getJogadores() {
-		return jogadores;
-	}
-
-	public void setJogadores(List<Jogador> jogadores) {
-		this.jogadores = jogadores;
 	}
 
 	public Integer getPontuacao() {
