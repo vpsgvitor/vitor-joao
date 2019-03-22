@@ -1,9 +1,9 @@
 package br.com.caelum.vraptor.controller;
 
 import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Patch;
+import br.com.caelum.vraptor.Path;
 
-@Patch("/equipe")
+@Path("/equipe")
 @Controller
 public class EquipeController {
 

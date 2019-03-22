@@ -6,12 +6,12 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Patch;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.com.vitor.vitorjoao.banco.Banco;
 import br.com.vitor.vitorjoao.model.Partida;
 
-@Patch("/partida")
+@Path("/partida")
 @Controller
 public class PartidaController {
 
