@@ -33,7 +33,7 @@
 	      <td>${partida.equipe1.golsNaPartida}</td>
 	      <td>${partida.equipe2.golsNaPartida}</td>
 	      <td>${partida.equipe2.nome}</td>
-	      <td>###</td>
+	      <td>Definir Resultado</td>
 	    </tr>
     </c:forEach>
   </tbody>

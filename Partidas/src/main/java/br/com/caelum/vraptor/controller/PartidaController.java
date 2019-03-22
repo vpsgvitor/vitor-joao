@@ -11,12 +11,12 @@ import br.com.caelum.vraptor.Result;
 import br.com.vitor.vitorjoao.banco.Banco;
 import br.com.vitor.vitorjoao.model.Partida;
 
+@Patch("/partida")
 @Controller
-@Patch("partida")
 public class PartidaController {
 
 	@Inject
-	Result result;
+	private Result result;
 
 	@Get("/")
 	public List<Partida> lista() {

@@ -17,7 +17,7 @@ public class IndexController {
 	protected IndexController() {
 		this(null);
 	}
-	
+
 	@Inject
 	public IndexController(Result result) {
 		this.result = result;
@@ -25,6 +25,6 @@ public class IndexController {
 
 	@Path("/")
 	public void index() {
-		result.include("variable", "VRaptor!");
+		result.redirectTo(PartidaController.class).lista();
 	}
 }
