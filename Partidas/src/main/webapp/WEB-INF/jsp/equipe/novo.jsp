@@ -15,5 +15,24 @@
 </head>
 <body>
 
+<h2>Nova Equipe</h2>
+<form action="/equipe/novo" method="post">
+  <div class="form-group">
+   <select class="custom-select" name="${equipe.nome}" placeholder="Equipe 1">
+	   <c:forEach items="${equipes}" var="equipe">
+		  <option selected>${equipe}</option>
+		</c:forEach>
+	</select>
+  </div>
+  <div class="form-group">
+   <select class="custom-select" name="${partida.equipe2}" placeholder="Equipe 2">
+	   <c:forEach items="${equipes}" var="equipe">
+		  <option selected>${equipe}</option>
+		</c:forEach>
+	</select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 </body>
 </html>

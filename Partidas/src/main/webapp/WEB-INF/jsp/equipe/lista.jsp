@@ -15,5 +15,24 @@
 </head>
 <body>
 
+<h3>Equipes</h3>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col-sm-1">#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <c:forEach items="${equipeList}" var="equipe">
+	    <tr>
+	      <th scope="row">${equipe.nome}</th>
+	      <td>Ver</td>
+	    </tr>
+    </c:forEach>
+  </tbody>
+</table>
+
+
 </body>
 </html>
