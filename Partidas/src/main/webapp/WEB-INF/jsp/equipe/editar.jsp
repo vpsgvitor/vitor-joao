@@ -26,26 +26,10 @@
 </head>
 <body>
 
-	<h3>Equipes</h3>
-	<table class="table table-bordered table-striped">
-		<thead>
-			<tr>
-				<th scope="col">Nome</th>
-				<th scope="col-sm-1">#</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${equipeList}" var="equipe">
-				<tr>
-					<th scope="row"><a
-						href="/your.groupid/equipe/editar/${equipe.id}">${equipe.nome}</a></th>
-					<td>Ver</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	
-
-
+	<h2>Nova Equipe</h2>
+	<form action="/equipe/salvar" method="post">
+		<input type="text" value="${equipe.nome}">
+		<button type="submit" class="btn btn-primary">salvar</button>
+	</form>
 </body>
 </html>

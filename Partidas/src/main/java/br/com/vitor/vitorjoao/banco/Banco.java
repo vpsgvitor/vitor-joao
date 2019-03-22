@@ -29,10 +29,25 @@ public class Banco {
 				listaPartidas.add(partida);
 			}
 		}
-
+	}
+	public static Equipe getEquipeById(Long id) {
+		for (Equipe e : listaEquipes) {
+			if (e.getId() == id) {
+				return e;
+			}
+		}
+		return null;
 	}
 
-	public static void init() {
+	public static void setEquipe(Equipe eq) {
+		for (Equipe e : listaEquipes) {
+			if (e.getId() == eq.getId()) {
+				e.setNome(eq.getNome());
+			}
+		}
+	}
+
+	public void init() {
 		Equipe eq1 = new Equipe();
 		eq1.setId(9l);
 		eq1.setNome("Vitor");
