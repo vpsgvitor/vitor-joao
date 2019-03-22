@@ -14,18 +14,22 @@
 </head>
 <body>
 
-<h2>Definir resultado</h2>
-<form action="/partida/editar" method="post">
-  <div class="form-group">
-  	<c:out value="${partida.equipe1.nome}">${partida.equipe1.nome}</c:out>
-   <input name="${partida.equipe1.golsNaPartida}" placeholder="Gols da partida equipe 1"/>
-  </div>
-  <div class="form-group">
-  	<c:out value="${partida.equipe2.nome}">${partida.equipe2.nome}</c:out>
-   <input name="${partida.equipe2.golsNaPartida}" placeholder="Gols da partida equipe 2"/>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="row justify-content-sm-center">
+	<div class="col-sm-10">
+		<h2>Definir resultado</h2>
+		<form action="/your.groupid/partida/editar" method="post">
+		  <div class="form-group">
+		  	<c:out value="${partida.equipe1.nome}">${partida.equipe1.nome}</c:out>
+		  <input name="${partida.equipe1.golsNaPartida}" placeholder="Gols da partida equipe 1"/>
+		 </div>
+		 <div class="form-group">
+		 	<c:out value="${partida.equipe2.nome}">${partida.equipe2.nome}</c:out>
+		  <input name="${partida.equipe2.golsNaPartida}" placeholder="Gols da partida equipe 2"/>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>
 
 </body>
 </html>

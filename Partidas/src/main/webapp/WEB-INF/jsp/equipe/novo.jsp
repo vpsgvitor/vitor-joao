@@ -16,7 +16,7 @@
 <body>
 
 <h2>Nova Equipe</h2>
-<form action="/equipe/novo" method="post">
+<form action="/equipe/salvar" method="post">
   <div class="form-group">
    <select class="custom-select" name="${equipe.nome}" placeholder="Equipe 1">
 	   <c:forEach items="${equipes}" var="equipe">

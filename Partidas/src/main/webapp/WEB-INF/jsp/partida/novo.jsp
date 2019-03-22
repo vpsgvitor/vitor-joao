@@ -14,24 +14,27 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<h2>Nova Partida</h2>
-<form action="/partida/novo" method="post">
-  <div class="form-group">
-   <select class="custom-select" name="${partida.equipe1}" placeholder="Equipe 1">
-	   <c:forEach items="${equipes}" var="equipe">
-		  <option selected>${equipe}</option>
-		</c:forEach>
-	</select>
-  </div>
-  <div class="form-group">
-   <select class="custom-select" name="${partida.equipe2}" placeholder="Equipe 2">
-	   <c:forEach items="${equipes}" var="equipe">
-		  <option selected>${equipe}</option>
-		</c:forEach>
-	</select>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
+<div class="row justify-content-sm-center">
+	<div class="col-sm-10">
+		<h2>Nova Partida</h2>
+		<form action="/your.groupid/partida/novo" method="post">
+		  <div class="form-group">
+		   <select class="custom-select" name="${partida.equipe1}" placeholder="Equipe 1">
+			   <c:forEach items="${equipes}" var="equipe">
+				  <option selected>${equipe}</option>
+				</c:forEach>
+			</select>
+		  </div>
+		  <div class="form-group">
+		   <select class="custom-select" name="${partida.equipe2}" placeholder="Equipe 2">
+			   <c:forEach items="${equipes}" var="equipe">
+				  <option selected>${equipe}</option>
+				</c:forEach>
+			</select>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>
 </body>
 </html>

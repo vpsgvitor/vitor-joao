@@ -14,30 +14,30 @@
 </head>
 <body>
 
-<h3>Partidas</h3>
-
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Equipe 1</th>
-      <th scope="col-sm-1">x</th>
-      <th scope="col-sm-1">x</th>
-      <th scope="col">Equipe 2</th>
-      <th scope="col">#</th>
-    </tr>
-  </thead>
-  <tbody>
-    <c:forEach items="${partidaList}" var="partida">
-	    <tr>
-	      <th scope="row">${partida.equipe1.nome}</th>
-	      <td>${partida.equipe1.golsNaPartida}</td>
-	      <td>${partida.equipe2.golsNaPartida}</td>
-	      <td>${partida.equipe2.nome}</td>
-	      <td>Definir Resultado</td>
-	    </tr>
-    </c:forEach>
-  </tbody>
-</table>
-
+<div class="row justify-content-sm-center">
+	<div class="col-sm-10">
+		<h3>Partidas</h3>
+		<table class="table table-bordered table-striped">
+		  <thead>
+		    <tr>
+		      <th>Equipe 1</th>
+		      <th>x</th>
+		      <th>Equipe 2</th>
+		      <th>#</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <c:forEach items="${partidaList}" var="partida">
+			    <tr>
+			      <th scope="row">${partida.equipe1.nome}</th>
+			      <td>${partida.equipe1.golsNaPartida} x ${partida.equipe2.golsNaPartida}</td>
+			      <td>${partida.equipe2.nome}</td>
+			      <td><a href="/your.groupid/partida/editar/${partida.id}">Definir Resultado</a></td>
+			    </tr>
+		    </c:forEach>
+		  </tbody>
+		</table>
+	</div>
+</div>
 </body>
 </html>
