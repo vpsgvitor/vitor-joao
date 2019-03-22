@@ -47,7 +47,7 @@ public class Banco {
 		}
 	}
 
-	public void init() {
+	public static void init() {
 		Equipe eq1 = new Equipe();
 		eq1.setId(9l);
 		eq1.setNome("Vitor");
