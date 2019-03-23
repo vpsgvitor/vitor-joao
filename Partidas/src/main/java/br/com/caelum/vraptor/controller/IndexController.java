@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
+import br.com.vitor.vitorjoao.banco.Banco;
 
 @Path("/")
 @Controller
@@ -26,6 +27,6 @@ public class IndexController {
 
 	@Path("/")
 	public void index() {
-		result.redirectTo(PartidaController.class).lista();
+		result.redirectTo(EquipeController.class).lista();
 	}
 }

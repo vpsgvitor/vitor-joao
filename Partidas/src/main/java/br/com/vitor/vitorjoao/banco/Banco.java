@@ -10,6 +10,38 @@ public class Banco {
 
 	public static List<Partida> listaPartidas = new ArrayList<Partida>();
 	public static List<Equipe> listaEquipes = new ArrayList<Equipe>();
+	private static boolean aux = false;
+
+// Métodos onde quando existe, edita, quando não existe, adiciona!
+
+	public static void salvarEquipe(Equipe equipe) {
+		aux = true;
+		for (Equipe e : listaEquipes) {
+			if (e.getId() == equipe.getId()) {
+				e.setNome(equipe.getNome());
+				aux = false;
+			}
+		}
+		if (aux) {
+			addEquipe(equipe);
+		}
+	}
+
+	public static void salvarPartida(Partida partida) {
+		aux = true;
+		for (Partida p : listaPartidas) {
+			if (p.getId() == partida.getId()) {
+				p.setEquipe1(partida.getEquipe1());
+				p.setEquipe2(partida.getEquipe2());
+				aux = false;
+			}
+		}
+		if (aux) {
+			addPartida(partida);
+		}
+	}
+
+//Métodos getById	
 
 	public static Partida getPartidaById(Long id) {
 		for (Partida p : listaPartidas) {
@@ -19,17 +51,7 @@ public class Banco {
 		}
 		return null;
 	}
-	
-	public static void salvar(Partida partida) {
-		for (Partida p : listaPartidas) {
-			if (p.getId() == partida.getId()) {
-				p.setEquipe1(partida.getEquipe1());
-				p.setEquipe2(partida.getEquipe2());
-			}else {
-				listaPartidas.add(partida);
-			}
-		}
-	}
+
 	public static Equipe getEquipeById(Long id) {
 		for (Equipe e : listaEquipes) {
 			if (e.getId() == id) {
@@ -39,34 +61,15 @@ public class Banco {
 		return null;
 	}
 
-	public static void setEquipe(Equipe eq) {
-		for (Equipe e : listaEquipes) {
-			if (e.getId() == eq.getId()) {
-				e.setNome(eq.getNome());
-			}
-		}
+//Metodos add, já que sem o banco, fode a porra do id!
+
+	public static void addEquipe(Equipe equipe) {
+		equipe.setId(Long.valueOf(listaEquipes.size() + 1));
+		listaEquipes.add(equipe);
 	}
 
-	public static void init() {
-		Equipe eq1 = new Equipe();
-		eq1.setId(9l);
-		eq1.setNome("Vitor");
-		eq1.setGolsNaPartida(6);
-
-		Equipe eq2 = new Equipe();
-		eq2.setId(9l);
-		eq2.setNome("Joao");
-		eq2.setGolsNaPartida(9);
-		
-		Partida p = new Partida();
-		p.setId(6l);
-		p.setEquipe1(eq1);
-		p.setEquipe2(eq2);
-		
-		listaPartidas.add(p);
-		listaEquipes.add(eq1);
-		listaEquipes.add(eq2);
-
+	public static void addPartida(Partida partida) {
+		partida.setId(Long.valueOf(listaPartidas.size() + 1));
+		listaPartidas.add(partida);
 	}
-
 }

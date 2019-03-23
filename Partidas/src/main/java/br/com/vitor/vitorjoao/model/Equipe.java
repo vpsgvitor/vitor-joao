@@ -11,6 +11,11 @@ public class Equipe {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Equipe(Long id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
+
 	public Equipe(Long id, String nome, Integer pontuacao, Integer golsNaPartida) {
 		super();
 		this.id = id;

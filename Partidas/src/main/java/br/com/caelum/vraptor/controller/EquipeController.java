@@ -1,6 +1,5 @@
 package br.com.caelum.vraptor.controller;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -15,7 +14,7 @@ import br.com.vitor.vitorjoao.model.Equipe;
 @Path("/equipe")
 @Controller
 public class EquipeController {
-	
+
 	@Inject
 	Result result;
 
@@ -26,7 +25,6 @@ public class EquipeController {
 
 	@Get("/novo")
 	public void novo() {
-		// Mapeado para JSP
 	}
 
 	@Get("/editar/{id}")
@@ -36,11 +34,11 @@ public class EquipeController {
 	}
 
 	@Post("/salvar")
-	public void salvar(Equipe equipe) {
-		Banco.setEquipe(equipe);
+	public void salvar(Long id, String nome) {
+		Banco.salvarEquipe(new Equipe(id, nome));
 		result.forwardTo(IndexController.class).index();
 	}
-	
+
 	@Get("/pontuacao")
 	public void pontuacao() {
 		// TODO Auto-generated method stub

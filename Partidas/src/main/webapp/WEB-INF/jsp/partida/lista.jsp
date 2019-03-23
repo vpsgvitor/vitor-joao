@@ -14,6 +14,8 @@
 </head>
 <body>
 
+<td><a href="/your.groupid/partida/novo">NOVO</a></td>
+
 <div class="row justify-content-sm-center">
 	<div class="col-sm-10">
 		<h3>Partidas</h3>

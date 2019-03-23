@@ -28,7 +28,9 @@
 
 	<h2>Nova Equipe</h2>
 	<form action="/your.groupid/equipe/salvar" method="post">
-		<input type="text" value="${equipe.nome}">
+		<input type="hidden" name="id"
+			value="${equipe.getId()}"> <input type="text"
+			value="${equipe.getNome()}" name="nome">
 		<button type="submit" class="btn btn-primary">salvar</button>
 	</form>
 </body>

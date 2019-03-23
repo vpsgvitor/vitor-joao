@@ -26,6 +26,8 @@
 </head>
 <body>
 
+<td><a href="/your.groupid/equipe/novo">NOVO</a></td>
+
 	<h3>Equipes</h3>
 	<table class="table table-bordered table-striped">
 		<thead>

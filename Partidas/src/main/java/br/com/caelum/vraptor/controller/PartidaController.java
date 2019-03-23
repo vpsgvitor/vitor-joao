@@ -21,7 +21,6 @@ public class PartidaController {
 
 	@Get("/")
 	public List<Partida> lista() {
-		Banco.init();
 		return Banco.listaPartidas;
 	}
 
@@ -29,10 +28,15 @@ public class PartidaController {
 	public void editar(Long id) {
 		result.include("partida", Banco.getPartidaById(id));
 	}
-	
+
 	@Post("/salvar")
 	public void salvar(Partida partida) {
-		
+		Banco.salvarPartida(partida);
 		result.redirectTo(this).lista();
+	}
+
+	@Get("/novo")
+	public void novo() {
+
 	}
 }
