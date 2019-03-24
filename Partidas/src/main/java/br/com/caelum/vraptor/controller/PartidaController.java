@@ -37,6 +37,13 @@ public class PartidaController {
 
 	@Get("/novo")
 	public void novo() {
+		result.include("equipes", Banco.listaEquipes);
 
+	}
+
+	@Post("/novo")
+	public void novo(Long idEquipe01, Long idEquipe02) {
+		Banco.addPartida(new Partida(Banco.getEquipeById(idEquipe01), Banco.getEquipeById(idEquipe02)));
+		result.redirectTo(this).lista();
 	}
 }

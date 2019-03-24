@@ -5,6 +5,11 @@ public class Partida {
 	private Equipe equipe1;
 	private Equipe equipe2;
 
+	public Partida(Equipe eq1, Equipe eq2) {
+		this.equipe1 = eq1;
+		this.equipe2 = eq2;
+	}
+
 	public Equipe getVencedor() {
 		return equipe1.getGolsNaPartida() > equipe2.getGolsNaPartida() ? equipe1 : equipe2;
 	}

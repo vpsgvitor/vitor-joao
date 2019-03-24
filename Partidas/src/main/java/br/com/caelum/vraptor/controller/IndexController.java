@@ -13,9 +13,6 @@ public class IndexController {
 
 	private final Result result;
 
-	/**
-	 * @deprecated CDI eyes only
-	 */
 	protected IndexController() {
 		this(null);
 	}

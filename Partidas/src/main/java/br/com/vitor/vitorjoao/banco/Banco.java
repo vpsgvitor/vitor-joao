@@ -72,4 +72,21 @@ public class Banco {
 		partida.setId(Long.valueOf(listaPartidas.size() + 1));
 		listaPartidas.add(partida);
 	}
+//Métodos remove
+
+	public static void removeEquipeById(Long id) {
+		for (Equipe p : listaEquipes) {
+			if (p.getId() == id) {
+				listaEquipes.remove(p);
+			}
+		}
+	}
+
+	public static void removePartidaById(Long id) {
+		for (Partida p : listaPartidas) {
+			if (p.getId() == id) {
+				listaPartidas.remove(p);
+			}
+		}
+	}
 }

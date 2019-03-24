@@ -41,6 +41,5 @@ public class EquipeController {
 
 	@Get("/pontuacao")
 	public void pontuacao() {
-		// TODO Auto-generated method stub
 	}
 }
