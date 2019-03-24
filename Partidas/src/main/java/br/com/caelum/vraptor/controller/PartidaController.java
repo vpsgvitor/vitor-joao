@@ -38,7 +38,6 @@ public class PartidaController {
 	@Get("/novo")
 	public void novo() {
 		result.include("equipes", Banco.listaEquipes);
-
 	}
 
 	@Post("/novo")
