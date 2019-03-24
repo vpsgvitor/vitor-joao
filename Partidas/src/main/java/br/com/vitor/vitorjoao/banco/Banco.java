@@ -89,4 +89,14 @@ public class Banco {
 			}
 		}
 	}
+
+//Ajusta Placar
+	public static void ajustaPlacar(Long idPartida, Integer golsEquipe01, Integer golsEquipe02) {
+		for (Partida p : listaPartidas) {
+			if (p.getId() == idPartida) {
+				p.getEquipe1().setGolsNaPartida(golsEquipe01);
+				p.getEquipe2().setGolsNaPartida(golsEquipe02);
+			}
+		}
+	}
 }

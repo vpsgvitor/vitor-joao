@@ -46,4 +46,10 @@ public class PartidaController {
 		Banco.addPartida(new Partida(Banco.getEquipeById(idEquipe01), Banco.getEquipeById(idEquipe02)));
 		result.redirectTo(this).lista();
 	}
+
+	@Post("/ajustaPlacar")
+	public void novo(Long idPartida, Integer golsEquipe01, Integer golsEquipe02) {
+		Banco.ajustaPlacar(idPartida, golsEquipe01, golsEquipe02);
+		result.redirectTo(this).lista();
+	}
 }
