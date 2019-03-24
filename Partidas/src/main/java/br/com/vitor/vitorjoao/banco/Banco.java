@@ -1,6 +1,7 @@
 package br.com.vitor.vitorjoao.banco;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.vitor.vitorjoao.model.Equipe;
@@ -64,12 +65,20 @@ public class Banco {
 //Metodos add, j√° que sem o banco, fode a porra do id!
 
 	public static void addEquipe(Equipe equipe) {
-		equipe.setId(Long.valueOf(listaEquipes.size() + 1));
+		if (listaEquipes.isEmpty()) {
+			equipe.setId(Long.valueOf(0));
+		} else {
+			equipe.setId(Long.valueOf(listaEquipes.size() + 1));
+		}
 		listaEquipes.add(equipe);
 	}
 
 	public static void addPartida(Partida partida) {
-		partida.setId(Long.valueOf(listaPartidas.size() + 1));
+		if (listaPartidas.isEmpty()) {
+			partida.setId(Long.valueOf(0));
+		} else {
+			partida.setId(Long.valueOf(listaPartidas.size() + 1));
+		}
 		listaPartidas.add(partida);
 	}
 //MÈtodos remove
@@ -93,10 +102,17 @@ public class Banco {
 //Ajusta Placar
 	public static void ajustaPlacar(Long idPartida, Integer golsEquipe01, Integer golsEquipe02) {
 		for (Partida p : listaPartidas) {
-			if (p.getId() == idPartida) {
+			if (p.getId().intValue() == idPartida.intValue()) {
 				p.getEquipe1().setGolsNaPartida(golsEquipe01);
 				p.getEquipe2().setGolsNaPartida(golsEquipe02);
+				break;
 			}
 		}
+	}
+
+	public static List<Equipe> getPontuacao() {
+		List<Equipe> lista = listaEquipes;
+		Collections.sort(lista);
+		return lista;
 	}
 }

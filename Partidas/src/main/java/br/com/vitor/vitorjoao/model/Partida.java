@@ -5,6 +5,18 @@ public class Partida {
 	private Equipe equipe1;
 	private Equipe equipe2;
 
+	public Partida(Long id, Equipe equipe1, Equipe equipe2) {
+		super();
+		this.id = id;
+		this.equipe1 = equipe1;
+		this.equipe2 = equipe2;
+	}
+
+	public Partida() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Partida(Equipe eq1, Equipe eq2) {
 		this.equipe1 = eq1;
 		this.equipe2 = eq2;

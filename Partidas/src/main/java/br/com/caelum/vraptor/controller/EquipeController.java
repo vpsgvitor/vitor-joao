@@ -40,6 +40,7 @@ public class EquipeController {
 	}
 
 	@Get("/pontuacao")
-	public void pontuacao() {
+	public List<Equipe> pontuacao() {
+		return Banco.getPontuacao();
 	}
 }

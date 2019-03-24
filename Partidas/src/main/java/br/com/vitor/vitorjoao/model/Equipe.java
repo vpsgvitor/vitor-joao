@@ -1,6 +1,6 @@
 package br.com.vitor.vitorjoao.model;
 
-public class Equipe {
+public class Equipe implements Comparable<Equipe> {
 	private Long id;
 	private String nome;
 	private Integer pontuacao;
@@ -54,6 +54,22 @@ public class Equipe {
 
 	public void setGolsNaPartida(Integer golsNaPartida) {
 		this.golsNaPartida = golsNaPartida;
+	}
+
+	@Override
+	public int compareTo(Equipe equipe) {
+		if (this.pontuacao > equipe.getPontuacao()) {
+			return -1;
+		} else if (this.pontuacao < equipe.getPontuacao()) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return nome;
 	}
 
 }
