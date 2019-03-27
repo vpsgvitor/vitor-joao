@@ -14,26 +14,40 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<header>
-	<div>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="navbar-nav">
-				<a class="nav-link opcoes text-white h5"
-					href="/your.groupid/partida/">Partidas</a> <a
-					class="nav-link opcoes text-white h5"
-					href="/your.groupid/equipe/lista">Equipes</a><a
-					class="nav-link opcoes text-white h5"
-					href="/your.groupid/equipe/pontuacao">Pontuação</a>
-			</div>
-		</nav>
-	</div>
-</header>
+
 <body>
-	<h2>Nova Equipe</h2>
-	<form action="/your.groupid/equipe/salvar" method="post">
-		<input type="hidden" name="id" value="${equipe.getId()}"> <input
-			type="text" value="${equipe.getNome()}" name="nome">
-		<button type="submit" class="btn btn-primary">salvar</button>
-	</form>
+	<header>
+		<div>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="navbar-nav">
+					<ul class="nav">
+					  <li class="nav-item">
+					    <a class="nav-link"  href="/your.groupid/partida/">Partidas</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/your.groupid/equipe/lista">Equipes</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/your.groupid/partida/pontuacao">Pontuação</a>
+					  </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	
+	<div class="row justify-content-sm-center">
+		<div class="col-sm-5">
+			<h2 class="display-4" style="margin-bottom: 12px; margin-top: 12px;">Nova Equipe</h2>
+			<form action="/your.groupid/equipe/salvar" method="post">
+			  <div class="form-group">
+				<input type="hidden" name="equipe.id" value="${equipe.id}"> 
+				<input type="text" class="form-control" value="${equipe.nome}" name="equipe.nome" placeholder="Nome">
+			  </div>
+			  
+			  <button type="submit" class="btn btn-success float-right">Salvar</button>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

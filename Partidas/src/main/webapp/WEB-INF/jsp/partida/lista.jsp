@@ -14,45 +14,55 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<header>
-	<div>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="navbar-nav">
-				<a class="nav-link opcoes text-white h5"
-					href="/your.groupid/partida/">Partidas</a> <a
-					class="nav-link opcoes text-white h5"
-					href="/your.groupid/equipe/lista">Equipes</a><a
-					class="nav-link opcoes text-white h5"
-					href="/your.groupid/equipe/pontuacao">Pontuação</a>
-			</div>
-		</nav>
-	</div>
-</header>
 <body>
-	<a href="/your.groupid/partida/novo">NOVO</a>
+<header>
+		<div>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="navbar-nav">
+					<ul class="nav">
+					  <li class="nav-item">
+					    <a class="nav-link"  href="/your.groupid/partida/">Partidas</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/your.groupid/equipe/lista">Equipes</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/your.groupid/partida/pontuacao">Pontuação</a>
+					  </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
 	<div class="row justify-content-sm-center">
-		<div class="col-sm-10">
-			<h3>Partidas</h3>
+		<div class="col-sm-8">
+			<h3 class="display-4" style=" margin-top: 12px;">Partidas</h3>
+			<button class="btn btn-primary" onclick="location.href='/your.groupid/partida/novo'" style="margin-bottom: 12px; margin-top: 12px;">Nova Partida</button>
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
-						<th>Equipe 1</th>
-						<th>x</th>
-						<th>Equipe 2</th>
-						<th>#</th>
+						<th class="text-center">Equipe 1</th>
+						<th class="text-center">x</th>
+						<th class="text-center">Equipe 2</th>
+						<th class="text-center">#</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${partidaList}" var="partida">
-						<tr>
-							<th scope="row">${partida.equipe1.nome}</th>
-							<td>${partida.equipe1.golsNaPartida}x
-								${partida.equipe2.golsNaPartida}</td>
-							<td>${partida.equipe2.nome}</td>
-							<td><a href="/your.groupid/partida/editar/${partida.id}">Definir
-									Resultado</a></td>
-						</tr>
-					</c:forEach>
+					<c:choose>
+					<c:when test="${not empty partidaList}">
+							<c:forEach items="${partidaList}" var="partida">
+								<tr>
+									<td scope="row" class="text-center">${partida.equipe1.nome}</td>
+									<td class="text-center">${partida.equipe1.golsNaPartida} x ${partida.equipe2.golsNaPartida}</td>
+									<td class="text-center">${partida.equipe2.nome}</td>
+									<td class="text-center"><a href="/your.groupid/partida/editar/${partida.id}">Definir Resultado</a></td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<td colspan="4" class="text-center">Nenhuma partida cadastrada</td>
+						</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
 		</div>

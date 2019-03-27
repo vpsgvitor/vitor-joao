@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Definir placar</title>
-
+<title>Pontuação</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -17,7 +16,7 @@
 </head>
 
 <body>
-<header>
+	<header>
 		<div>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 				<div class="navbar-nav">
@@ -36,25 +35,36 @@
 			</nav>
 		</div>
 	</header>
+	
 	<div class="row justify-content-sm-center">
-		<div class="col-sm-4">
-			<h3 class="display-4" style=" margin-top: 12px;">Definir resultado</h3>
-			<form action="/your.groupid/partida/ajusta/placar" method="post">
-				<input type="hidden" value="${partida.id}" name="partida.id">
-				<div class="form-group">
-					<input type="hidden" name="partida.equipe1.id" value="${partida.equipe1.id}" />
-					<label for="eq1" class="lead">${partida.equipe1.nome}</label>
-					<input class="form-control" id="eq1" name="partida.equipe1.golsNaPartida" placeholder="Gols marcados equipe 1" />
-				</div>
-				<div class="form-group">
-					<input type="hidden" name="partida.equipe2.id" value="${partida.equipe2.id}" />
-					<label for="eq2" class="lead">${partida.equipe2.nome}</label>
-					<input class="form-control" id="eq2" name="partida.equipe2.golsNaPartida" placeholder="Gols marcados equipe 2" />
-				</div>
-				<button type="submit" class="btn btn-primary float-right">Salvar</button>
-			</form>
+		<div class="col-sm-8">
+			<h3 class="display-4" style=" margin-top: 12px;">Pontuação</h3>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome</th>
+						<th scope="col">Pontuacao</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:choose>
+						<c:when test="${not empty equipeList}">
+							<c:forEach items="${equipeList}" var="equipe">
+								<tr>
+									<td scope="row">${equipe.nome}</td>
+									<td scope="row">${equipe.pontuacao}</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td colspan="2" class="text-center">Sem registros</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
+				</tbody>
+			</table>
 		</div>
 	</div>
-
 </body>
 </html>

@@ -14,39 +14,60 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<header>
-	<div>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="navbar-nav">
-				<a class="nav-link opcoes text-white h5"
-					href="/your.groupid/partida/">Partidas</a> <a
-					class="nav-link opcoes text-white h5"
-					href="/your.groupid/equipe/lista">Equipes</a> <a
-					class="nav-link opcoes text-white h5"
-					href="/your.groupid/equipe/pontuacao">Pontuação</a>
-			</div>
-		</nav>
-	</div>
-</header>
+<style type="text/css">
+		.pega-clique:hover{
+			background-color: rgba(0,0,0,.10) !important;
+			cursor: pointer;
+		}
+	</style>
 <body>
-	<a href="/your.groupid/equipe/novo">NOVO</a>
-	<h3>Equipes</h3>
-	<table class="table table-bordered table-striped">
-		<thead>
-			<tr>
-				<th scope="col">Nome</th>
-				<th scope="col-sm-1">#</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${equipeList}" var="equipe">
-				<tr>
-					<th scope="row"><a
-						href="/your.groupid/equipe/editar/${equipe.id}">${equipe.nome}</a></th>
-					<td>Ver</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<header>
+		<div>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="navbar-nav">
+					<ul class="nav">
+					  <li class="nav-item">
+					    <a class="nav-link" href="/your.groupid/partida/">Partidas</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/your.groupid/equipe/lista">Equipes</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="/your.groupid/partida/pontuacao">Pontuação</a>
+					  </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<div class="row justify-content-sm-center">
+		<div class="col-sm-8">
+			<h3 class="display-4" style=" margin-top: 12px;">Equipes</h3>
+			<button class="btn btn-primary" onclick="location.href='/your.groupid/equipe/novo'" style="margin-bottom: 12px; margin-top: 12px;">Nova Equipe</button>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:choose>
+						<c:when test="${not empty equipeList}">
+							<c:forEach items="${equipeList}" var="equipe">
+								<tr>
+									<td class="pega-clique" onclick="location.href='/your.groupid/equipe/editar/${equipe.id}'">${equipe.nome}</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td class="text-center">Nenhuma equipe cadastrada</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

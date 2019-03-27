@@ -1,53 +1,28 @@
 package br.com.vitor.vitorjoao.model;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Partida {
 	Long id;
 	private Equipe equipe1;
 	private Equipe equipe2;
 
-	public Partida(Long id, Equipe equipe1, Equipe equipe2) {
-		super();
-		this.id = id;
-		this.equipe1 = equipe1;
-		this.equipe2 = equipe2;
-	}
-
-	public Partida() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Partida(Equipe eq1, Equipe eq2) {
-		this.equipe1 = eq1;
-		this.equipe2 = eq2;
-	}
-
-	public Equipe getVencedor() {
-		return equipe1.getGolsNaPartida() > equipe2.getGolsNaPartida() ? equipe1 : equipe2;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Equipe getEquipe1() {
-		return equipe1;
-	}
-
-	public void setEquipe1(Equipe equipe1) {
-		this.equipe1 = equipe1;
-	}
-
-	public Equipe getEquipe2() {
-		return equipe2;
-	}
-
-	public void setEquipe2(Equipe equipe2) {
-		this.equipe2 = equipe2;
+	public Equipe getResultado() {
+		if (equipe1.getGolsNaPartida() > equipe2.getGolsNaPartida()) {
+			return equipe1;
+		} else if (equipe1.getGolsNaPartida() < equipe2.getGolsNaPartida()) {
+			return equipe2;
+		}
+		return null;
 	}
 
 }
