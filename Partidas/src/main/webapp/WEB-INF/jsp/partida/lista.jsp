@@ -34,7 +34,7 @@
 			</nav>
 		</div>
 	</header>
-	<div class="row justify-content-sm-center">
+	<div class="row justify-content-sm-center" style="margin-left: 0px; margin-right: 0px;">
 		<div class="col-sm-8">
 			<h3 class="display-4" style=" margin-top: 12px;">Partidas</h3>
 			<button class="btn btn-primary" onclick="location.href='/your.groupid/partida/novo'" style="margin-bottom: 12px; margin-top: 12px;">Nova Partida</button>

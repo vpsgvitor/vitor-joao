@@ -36,7 +36,7 @@
 		</div>
 	</header>
 	
-	<div class="row justify-content-sm-center">
+	<div class="row justify-content-sm-center" style="margin-left: 0px; margin-right: 0px;">
 		<div class="col-sm-8">
 			<h3 class="display-4" style=" margin-top: 12px;">Pontuação</h3>
 			<table class="table table-bordered table-striped">
