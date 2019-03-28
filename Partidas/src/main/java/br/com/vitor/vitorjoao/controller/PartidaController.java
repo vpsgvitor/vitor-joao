@@ -49,7 +49,6 @@ public class PartidaController {
 
 	@Get("/partida/pontuacao")
 	public List<Equipe> pontuacao() {
-		service.sincronizaPontos();
 		return equipeService.listar();
 	}
 

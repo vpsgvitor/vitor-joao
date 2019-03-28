@@ -46,12 +46,8 @@ public class PartidaService {
 	}
 
 	public void ajustaPlacar(Partida partida) {
-		Integer pontEquipe1 = equipeRepository.findOne(partida.getEquipe1().getId()).getPontuacao() != null
-				? equipeRepository.findOne(partida.getEquipe1().getId()).getPontuacao()
-				: 0;
-		Integer pontEquipe2 = equipeRepository.findOne(partida.getEquipe2().getId()).getPontuacao() != null
-				? equipeRepository.findOne(partida.getEquipe2().getId()).getPontuacao()
-				: 0;
+		Equipe equipe1 = equipeRepository.findOne(partida.getEquipe1().getId());
+		Equipe equipe2 = equipeRepository.findOne(partida.getEquipe2().getId());
 
 		if (partida.getResultado() != null) {
 			Integer pontEquipeWIN = equipeRepository.findOne(partida.getResultado().getId()).getPontuacao() != null
@@ -59,9 +55,20 @@ public class PartidaService {
 					: 0;
 			partida.getResultado().setPontuacao(pontEquipeWIN + 2);
 		} else {
-			partida.getEquipe1().setPontuacao(pontEquipe1 + 1);
-			partida.getEquipe2().setPontuacao(pontEquipe2 + 1);
+			partida.getEquipe1()
+					.setPontuacao((equipe1.getPontuacao() != null
+							? equipeRepository.findOne(partida.getEquipe1().getId()).getPontuacao()
+							: 0) + 1);
+			partida.getEquipe2()
+					.setPontuacao((equipe2.getPontuacao() != null
+							? equipeRepository.findOne(partida.getEquipe2().getId()).getPontuacao()
+							: 0) + 1);
 		}
+		equipe1.setPontuacao(partida.getEquipe1().getPontuacao());
+		equipe2.setPontuacao(partida.getEquipe2().getPontuacao());
+
+		equipeRepository.alterar(equipe1);
+		equipeRepository.alterar(equipe2);
 
 		this.salvar(partida, false);
 	}
@@ -91,21 +98,6 @@ public class PartidaService {
 		partidaMergeada.setEquipe2(equipeService.merge(equipe2, partida.getEquipe2()));
 
 		return partidaMergeada;
-	}
-
-	public void sincronizaPontos() {
-		for (Partida partida : repository.listar()) {
-			for (Equipe equipe : equipeRepository.listar()) {
-				if (partida.getEquipe1().getId().equals(equipe.getId())) {
-					equipe.setPontuacao((equipe.getPontuacao() != null ? equipe.getPontuacao() : 0)
-							+ (partida.getEquipe1().getPontuacao() != null ? partida.getEquipe1().getPontuacao() : 0));
-				}
-				if (partida.getEquipe2().getId().equals(equipe.getId())) {
-					equipe.setPontuacao((equipe.getPontuacao() != null ? equipe.getPontuacao() : 0)
-							+ (partida.getEquipe2().getPontuacao() != null ? partida.getEquipe2().getPontuacao() : 0));
-				}
-			}
-		}
 	}
 
 }
