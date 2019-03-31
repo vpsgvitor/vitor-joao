@@ -9,41 +9,69 @@ public class EquipeBanco implements EquipeDao {
 
 	@Override
 	public void salvar(Equipe dado) {
-		Banco.listaEquipes.add(dado);
+
+		try {
+			Banco.getEntityManager().persist(dado);
+
+			Banco.getEntityTransaction().commit();
+
+		} catch (Exception e) {
+			System.out.println("Erro ***");
+			e.printStackTrace();
+			Banco.getEntityTransaction().rollback();
+		}
 	}
 
 	@Override
 	public void alterar(Equipe dado) {
 
-		for (Equipe equipeBanco : Banco.listaEquipes) {
-			if (equipeBanco.getId().equals(dado.getId())) {
-				equipeBanco.setId(dado.getId());
-				equipeBanco.setNome(dado.getNome());
-				equipeBanco.setPontuacao(dado.getPontuacao());
-				equipeBanco.setGolsNaPartida(dado.getGolsNaPartida());
-			}
+		try {
+
+			Equipe equipe = Banco.getEntityManager().find(Equipe.class, dado.getId());
+
+			equipe.setId(dado.getId());
+			equipe.setNome(dado.getNome());
+			equipe.setPontuacao(dado.getPontuacao());
+			equipe.setGolsNaPartida(dado.getGolsNaPartida());
+
+			Banco.getEntityManager().merge(equipe);
+
+			Banco.getEntityTransaction().commit();
+
+		} catch (Exception e) {
+			System.out.println("Erro ***");
+			Banco.getEntityTransaction().rollback();
 		}
 
 	}
 
 	@Override
 	public void excluir(Equipe dado) {
-		Banco.listaEquipes.remove(dado);
+		try {
+
+			Banco.getEntityManager().remove(dado);
+
+			Banco.getEntityTransaction().commit();
+
+		} catch (Exception e) {
+			System.out.println("Erro ***");
+			Banco.getEntityTransaction().rollback();
+		}
 	}
 
 	@Override
 	public List<Equipe> listar() {
-		return Banco.listaEquipes;
+		return Banco.getEntityManager().createQuery("select e from Equipe e", Equipe.class).getResultList();
 	}
 
 	@Override
 	public Equipe findOne(Long id) {
-		for (Equipe equipeBanco : Banco.listaEquipes) {
-			if (equipeBanco.getId().equals(id)) {
-				return equipeBanco;
-			}
+		try {
+			return Banco.getEntityManager().find(Equipe.class, id);
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 
 }

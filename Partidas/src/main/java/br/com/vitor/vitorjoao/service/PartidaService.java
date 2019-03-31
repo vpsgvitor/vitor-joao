@@ -34,7 +34,6 @@ public class PartidaService {
 		if (!novo) {
 			partidaSalva = this.merge(partida);
 		} else {
-			partidaSalva.setId(geraCodigo());
 			partidaSalva.setEquipe1(equipeRepository.findOne(partida.getEquipe1().getId()));
 			partidaSalva.setEquipe2(equipeRepository.findOne(partida.getEquipe2().getId()));
 		}

@@ -1,7 +1,6 @@
 package br.com.vitor.vitorjoao.service;
 
 import java.util.List;
-import java.util.Random;
 
 import javax.inject.Inject;
 
@@ -23,23 +22,22 @@ public class EquipeService {
 
 	public void salvar(Equipe equipe) {
 		if (this.findOne(equipe.getId()) == null) {
-			equipe.setId(geraCodigo());
 			repository.salvar(equipe);
 		} else {
 			repository.alterar(equipe);
 		}
 	}
 
-	private Long geraCodigo() {
-		Random rd = new Random();
-		Long cod = Long.valueOf((rd.nextInt((333 - 0) + 1) + 0) * 6);
-
-		if (repository.findOne(cod) != null) {
-			Long.valueOf((rd.nextInt((333 - 0) + 1) + 0) * 6);
-		}
-
-		return cod;
-	}
+//	private Long geraCodigo() {
+//		Random rd = new Random();
+//		Long cod = Long.valueOf((rd.nextInt((333 - 0) + 1) + 0) * 6);
+//
+//		if (repository.findOne(cod) != null) {
+//			Long.valueOf((rd.nextInt((333 - 0) + 1) + 0) * 6);
+//		}
+//
+//		return cod;
+//	}
 
 	/*
 	 * É passado duas equipes, quando ajustado o placar, a partida vem apenas com o
