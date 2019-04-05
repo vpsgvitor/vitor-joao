@@ -31,13 +31,14 @@ public class PartidaService {
 
 	public void salvar(Partida partida, boolean novo) {
 		Partida partidaSalva = partida;
+
 		if (!novo) {
 			partidaSalva = this.merge(partida);
 		} else {
 			partidaSalva.setEquipe1(equipeRepository.findOne(partida.getEquipe1().getId()));
 			partidaSalva.setEquipe2(equipeRepository.findOne(partida.getEquipe2().getId()));
 		}
-		if (this.findOne(partidaSalva.getId()) == null) {
+		if (partidaSalva.getId() == null) {
 			repository.salvar(partida);
 		} else {
 			repository.alterar(partidaSalva);

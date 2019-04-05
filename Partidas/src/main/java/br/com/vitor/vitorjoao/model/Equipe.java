@@ -5,39 +5,92 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity(name = "Equipe")
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class Equipe implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1240205202852441460L;
+	private static final long serialVersionUID = 2L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "Nome")
 	private String nome;
 
-	@Column(name = "Pontuacao")
 	private Integer pontuacao;
 
-	@Column(name = "golsNaPartida")
 	private Integer golsNaPartida;
+
+	public Equipe() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Equipe(Long id, String nome, Integer pontuacao, Integer golsNaPartida) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.pontuacao = pontuacao;
+		this.golsNaPartida = golsNaPartida;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Integer getPontuacao() {
+		return pontuacao;
+	}
+
+	public void setPontuacao(Integer pontuacao) {
+		this.pontuacao = pontuacao;
+	}
+
+	public Integer getGolsNaPartida() {
+		return golsNaPartida;
+	}
+
+	public void setGolsNaPartida(Integer golsNaPartida) {
+		this.golsNaPartida = golsNaPartida;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Equipe other = (Equipe) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
 	public Equipe(Long id, String nome) {
 		this.id = id;

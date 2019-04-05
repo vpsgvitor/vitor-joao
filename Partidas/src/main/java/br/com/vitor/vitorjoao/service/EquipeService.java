@@ -21,7 +21,7 @@ public class EquipeService {
 	}
 
 	public void salvar(Equipe equipe) {
-		if (this.findOne(equipe.getId()) == null) {
+		if (equipe.getId() == null) {
 			repository.salvar(equipe);
 		} else {
 			repository.alterar(equipe);
