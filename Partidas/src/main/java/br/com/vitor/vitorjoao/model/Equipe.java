@@ -2,7 +2,6 @@ package br.com.vitor.vitorjoao.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,21 +17,18 @@ public class Equipe implements Serializable {
 
 	private String nome;
 
-	private Integer pontuacao;
-
-	private Integer golsNaPartida;
+	private Integer pontuacao = 0;
 
 	public Equipe() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Equipe(Long id, String nome, Integer pontuacao, Integer golsNaPartida) {
+	public Equipe(Long id, String nome, Integer pontuacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.pontuacao = pontuacao;
-		this.golsNaPartida = golsNaPartida;
 	}
 
 	public Long getId() {
@@ -57,14 +53,6 @@ public class Equipe implements Serializable {
 
 	public void setPontuacao(Integer pontuacao) {
 		this.pontuacao = pontuacao;
-	}
-
-	public Integer getGolsNaPartida() {
-		return golsNaPartida;
-	}
-
-	public void setGolsNaPartida(Integer golsNaPartida) {
-		this.golsNaPartida = golsNaPartida;
 	}
 
 	@Override

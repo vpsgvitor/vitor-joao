@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "Partida")
+@Entity
+@Table(name = "Partida")
 public class Partida implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -17,13 +19,17 @@ public class Partida implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@ManyToOne(targetEntity = br.com.vitor.vitorjoao.model.Equipe.class)
-	@JoinColumn(name = "id_equipe1")
+	@ManyToOne
+	@JoinColumn(name = "Equipe1_id")
 	private Equipe equipe1;
 
-	@ManyToOne(targetEntity = br.com.vitor.vitorjoao.model.Equipe.class)
-	@JoinColumn(name = "id_equipe2")
+	@ManyToOne
+	@JoinColumn(name = "Equipe2_id")
 	private Equipe equipe2;
+
+	Integer golsEquipe1;
+
+	Integer golsEquipe2;
 
 	public Partida() {
 		super();
@@ -55,6 +61,22 @@ public class Partida implements Serializable {
 
 	}
 
+	public Integer getGolsEquipe1() {
+		return golsEquipe1;
+	}
+
+	public void setGolsEquipe1(Integer golsEquipe1) {
+		this.golsEquipe1 = golsEquipe1;
+	}
+
+	public Integer getGolsEquipe2() {
+		return golsEquipe2;
+	}
+
+	public void setGolsEquipe2(Integer golsEquipe2) {
+		this.golsEquipe2 = golsEquipe2;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -81,9 +103,9 @@ public class Partida implements Serializable {
 	}
 
 	public Equipe getResultado() {
-		if (equipe1.getGolsNaPartida() > equipe2.getGolsNaPartida()) {
+		if (golsEquipe1 > golsEquipe2) {
 			return equipe1;
-		} else if (equipe1.getGolsNaPartida() < equipe2.getGolsNaPartida()) {
+		} else if (golsEquipe1 < golsEquipe2) {
 			return equipe2;
 		}
 		return null;

@@ -53,7 +53,7 @@
 							<c:forEach items="${partidaList}" var="partida">
 								<tr>
 									<td scope="row" class="text-center">${partida.equipe1.nome}</td>
-									<td class="text-center">${partida.equipe1.golsNaPartida} x ${partida.equipe2.golsNaPartida}</td>
+									<td class="text-center">${partida.golsEquipe1} x ${partida.golsEquipe2}</td>
 									<td class="text-center">${partida.equipe2.nome}</td>
 									<td class="text-center"><a href="/your.groupid/partida/editar/${partida.id}" class="text-info">Definir Resultado</a></td>
 								</tr>

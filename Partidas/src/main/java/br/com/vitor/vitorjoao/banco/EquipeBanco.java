@@ -28,7 +28,6 @@ public class EquipeBanco implements EquipeDao {
 			Equipe equipe = Banco.getEntityManager().find(Equipe.class, dado.getId());
 			equipe.setNome(dado.getNome());
 			equipe.setPontuacao(dado.getPontuacao());
-			equipe.setGolsNaPartida(dado.getGolsNaPartida());
 			Banco.getEntityManager().merge(equipe);
 			Banco.getEntityManager().getTransaction().commit();
 		} catch (Exception e) {

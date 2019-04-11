@@ -26,6 +26,8 @@ public class PartidaBanco implements PartidaDao {
 		try {
 			Banco.conectar();
 			Partida partida = Banco.getEntityManager().find(Partida.class, dado.getId());
+			partida.setGolsEquipe1(dado.getGolsEquipe1());
+			partida.setGolsEquipe2(dado.getGolsEquipe2());
 			partida.setEquipe1(dado.getEquipe1());
 			partida.setEquipe2(dado.getEquipe2());
 			Banco.getEntityManager().merge(partida);

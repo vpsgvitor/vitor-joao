@@ -44,12 +44,12 @@
 				<div class="form-group">
 					<input type="hidden" name="partida.equipe1.id" value="${partida.equipe1.id}" />
 					<label for="eq1" class="lead">${partida.equipe1.nome}</label>
-					<input class="form-control" id="eq1" name="partida.equipe1.golsNaPartida" placeholder="Gols marcados equipe 1" />
+					<input class="form-control" id="eq1" name="partida.golsEquipe1" placeholder="Gols marcados equipe 1" />
 				</div>
 				<div class="form-group">
 					<input type="hidden" name="partida.equipe2.id" value="${partida.equipe2.id}" />
 					<label for="eq2" class="lead">${partida.equipe2.nome}</label>
-					<input class="form-control" id="eq2" name="partida.equipe2.golsNaPartida" placeholder="Gols marcados equipe 2" />
+					<input class="form-control" id="eq2" name="partida.golsEquipe2" placeholder="Gols marcados equipe 2" />
 				</div>
 				<button type="submit" class="btn btn-primary float-right">Salvar</button>
 			</form>
