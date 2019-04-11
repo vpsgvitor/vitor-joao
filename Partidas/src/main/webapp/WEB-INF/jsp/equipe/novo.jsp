@@ -41,7 +41,8 @@
 			<h2 class="display-4" style="margin-bottom: 12px; margin-top: 12px; text-align: center;">Nova Equipe</h2>
 			<form action="/your.groupid/equipe/salvar" method="post">
 			  <div class="form-group">
-				<input type="hidden" name="equipe.id" value="${equipe.id}"> 
+				<input type="hidden" name="equipe.id" value="${equipe.id}">
+				<input type="hidden" name="equipe.pontuacao" value="${equipe.pontuacao}"> 
 				<input type="text" class="form-control" value="${equipe.nome}" name="equipe.nome" placeholder="Nome">
 			  </div>
 			  

@@ -22,6 +22,9 @@ public class EquipeService {
 
 	public void salvar(Equipe equipe) {
 		if (equipe.getId() == null) {
+			if (equipe.getPontuacao() == null) {
+				equipe.setPontuacao(0);
+			}
 			repository.salvar(equipe);
 		} else {
 			repository.alterar(equipe);
