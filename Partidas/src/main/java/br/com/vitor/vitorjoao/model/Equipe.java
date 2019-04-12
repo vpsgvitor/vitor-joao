@@ -21,7 +21,6 @@ public class Equipe implements Serializable {
 
 	public Equipe() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Equipe(Long id, String nome, Integer pontuacao) {

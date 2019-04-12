@@ -27,9 +27,9 @@ public class Partida implements Serializable {
 	@JoinColumn(name = "Equipe2_id")
 	private Equipe equipe2;
 
-	Integer golsEquipe1;
+	private Integer golsEquipe1;
 
-	Integer golsEquipe2;
+	private Integer golsEquipe2;
 
 	public Partida() {
 		super();
